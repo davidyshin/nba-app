@@ -29,6 +29,7 @@ class Home extends React.Component {
       <div className="players-container">
       <h1>All Players</h1> 
       <p>List of all players will be here, going to draw component "Players" from players.js file</p>
+      <Players />
       </div>
       )
   }
