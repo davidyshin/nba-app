@@ -89,8 +89,7 @@ class Home extends React.Component {
 
   render() {
     const toggleHeader = this.getToggleHeader()
-    const toggle = this.getToggle()
-    console.log(this.state)        
+    const toggle = this.getToggle()    
     return (
       <div className='home-container'>
         {toggleHeader}
