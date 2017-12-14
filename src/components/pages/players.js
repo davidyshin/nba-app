@@ -31,12 +31,19 @@ class Players extends React.Component {
 
     }
 
+
     render() {
+        console.log(nba.stats.playerInfo({ PlayerID: 201954 }))
+        const searchString = this.props.searchString
+        const visiblePlayer = searchString.length > 2 ?
+            this.players.filter(player => player.downcaseName.includes(searchString))
+            : this.players.filter(player => player.downcaseName.startsWith(searchString))
         return (
-            (this.players).map(player => (
+
+            (visiblePlayer).map(player => (
                 <div className='playerCard' data-id={player.playerId} key={player.fullName}>
-                    <a href={player.playerId}>{player.firstName} {player.lastName}</a>
-                    <img src={player.url}/>
+                    <a href={`/player/${player.playerId}`}>{player.firstName} {player.lastName}</a>
+                    <img src={player.url} />
                 </div>
             )
             ))

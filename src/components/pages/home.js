@@ -10,35 +10,43 @@ const TABS = [
 class Home extends React.Component {
   constructor(props, history) {
     super(props)
-    this.state = {tab: TABS.JOIN }
+    this.state = {
+      tab: TABS.JOIN,
+      searchInput: ""
+    }
     this.setState = this.setState.bind(this)
   }
 
-
+  handleInput = (e) => {
+    this.setState({
+      searchInput: e.target.value
+    })
+  }
   getHome() {
-    return(
+    return (
       <div className="home-container">
-      <h1>Welcome to my project built on react</h1> 
-      <p>Hello World?</p>
+        <h1>Welcome to my project built on react</h1>
+        <p>Hello World?</p>
       </div>
     )
   }
 
   getPlayers() {
-    return(
+    return (
       <div className="players-container">
-      <h1>All Players</h1> 
-      <p>List of all players will be here, going to draw component "Players" from players.js file</p>
-      <Players />
+        <h1>All Players</h1>
+        <p>List of all players will be here, going to draw component "Players" from players.js file</p>
+        <input onChange={this.handleInput} value={this.state.searchInput} name='searchInput' type='text'/>
+      <Players searchString={this.state.searchInput}/>
       </div>
-      )
+    )
   }
 
   getTeam() {
-    return(
+    return (
       <div className="team-container">
-      <h1>Team</h1> 
-      <p>List of all teams will be here, going to draw component "Teams" from teams.js file
+        <h1>Team</h1>
+        <p>List of all teams will be here, going to draw component "Teams" from teams.js file
       </p>
       </div>
     )
@@ -50,26 +58,26 @@ class Home extends React.Component {
 
   getToggleClick() {
     return TABS.map((tab) => (
-      <input className={ `${tab}-tab-button` }
-             onClick={ this.setTab(tab) }
-             type='submit'
-             value={ tab }
-             />
+      <input className={`${tab}-tab-button`}
+        onClick={this.setTab(tab)}
+        type='submit'
+        value={tab}
+      />
     ))
   }
 
   getToggleHeader() {
     const tabs = this.getToggleClick()
 
-    return(
+    return (
       <div className='toggle-header'>
-        { tabs }
+        {tabs}
       </div>
     )
   }
 
   getToggle() {
-    switch(this.state.tab) {
+    switch (this.state.tab) {
       case TABS[TABS.indexOf('home')]:
         return this.getHome()
       case TABS[TABS.indexOf('players')]:
@@ -82,11 +90,11 @@ class Home extends React.Component {
   render() {
     const toggleHeader = this.getToggleHeader()
     const toggle = this.getToggle()
-
-    return(
+    console.log(this.state)        
+    return (
       <div className='home-container'>
-        { toggleHeader }
-        { toggle }
+        {toggleHeader}
+        {toggle}
       </div>
     )
   }
