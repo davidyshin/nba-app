@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import Players from './players'
-import Team from './teams'
+import Teams from './teams'
 
 const TABS = [
   'home', 'players', 'teams'
@@ -46,8 +46,8 @@ class Home extends React.Component {
     return (
       <div className="team-container">
         <h1>Team</h1>
-        <p>List of all teams will be here, going to draw component "Teams" from teams.js file
-      </p>
+        <p>List of all teams will be here, going to draw component "Teams" from teams.js file</p>
+        <Teams />
       </div>
     )
   }
@@ -56,19 +56,15 @@ class Home extends React.Component {
     return () => this.setState({ tab })
   }
 
-  getToggleClick() {
-    return TABS.map((tab) => (
+
+  getToggleHeader() {
+    let tabs = TABS.map((tab) => (
       <input className={`${tab}-tab-button`}
         onClick={this.setTab(tab)}
         type='submit'
         value={tab}
       />
     ))
-  }
-
-  getToggleHeader() {
-    const tabs = this.getToggleClick()
-
     return (
       <div className='toggle-header'>
         {tabs}
