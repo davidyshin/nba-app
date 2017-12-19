@@ -31,12 +31,24 @@ const getAllPlayers = () => {
 //Reference for API (nba.stats.leagueGameLog (for players)), will be used in the future 
 //to update most recent game stats for player.
 
-const REFERENCE =  { SEASON_ID: 0, PLAYER_ID: 1, PLAYER_NAME: 2, TEAM_ID: 3,
-  TEAM_ABBREVIATION: 4, TEAM_NAME: 5, GAME_ID: 6, GAME_DATE: 7,
-  MATCHUP: 8, WL: 9, MIN: 10, FGM: 11, FGA: 12, FG_PCT: 13,
-  FG3M: 14, FG3A: 15, FG3_PCT: 16, FTM: 17, FTA: 18, FT_PCT: 19,
-  OREB: 20, DREB: 21, REB: 22, AST: 23, STL: 24, BLK: 25, TOV: 26,
-  PF: 27, PTS: 28, PLUS_MINUS: 29, VIDEO_AVAILABLE: 30}
+
+// TODO : 
+// 1. Styling
+// 2. Player profile card displays ppg,apg,rpg, contains links to all other stats
+// 3. Eventually, player profile card will display most recent games and stats for respective player
+// 4. Team page
+// 5. Specific Team profile pages, that displays ppg, apg, rpg, contains links to all other stats and players.
+// 6. Team logo's working
+// 7. Refactor code
+// 
+
+
+// const REFERENCE =  { SEASON_ID: 0, PLAYER_ID: 1, PLAYER_NAME: 2, TEAM_ID: 3,
+//   TEAM_ABBREVIATION: 4, TEAM_NAME: 5, GAME_ID: 6, GAME_DATE: 7,
+//   MATCHUP: 8, WL: 9, MIN: 10, FGM: 11, FGA: 12, FG_PCT: 13,
+//   FG3M: 14, FG3A: 15, FG3_PCT: 16, FTM: 17, FTA: 18, FT_PCT: 19,
+//   OREB: 20, DREB: 21, REB: 22, AST: 23, STL: 24, BLK: 25, TOV: 26,
+//   PF: 27, PTS: 28, PLUS_MINUS: 29, VIDEO_AVAILABLE: 30}
 
 
 // Home component renders season leaders for specific stats (point, rebound, assist, steal, block)
