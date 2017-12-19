@@ -82,7 +82,7 @@ class Home extends React.Component {
               }
               alt="player-headshot"
             />
-            <h3>{players.player}</h3>
+            <a href={`./players/${players.playerId}`}>{players.player}</a>
             <p>{players.pts}</p>
           </div>
         ))}
@@ -98,7 +98,7 @@ class Home extends React.Component {
               }
               alt="player-headshot"
             />
-            <h3>{players.player}</h3>
+            <a href={`./players/${players.playerId}`}>{players.player}</a>
             <p>{players.ast}</p>
           </div>
         ))}
@@ -114,7 +114,7 @@ class Home extends React.Component {
               }
               alt="player-headshot"
             />
-            <h3>{players.player}</h3>
+            <a href={`./players/${players.playerId}`}>{players.player}</a>
             <p>{players.reb}</p>
           </div>
         ))}
@@ -130,7 +130,7 @@ class Home extends React.Component {
               }
               alt="player-headshot"
             />
-            <h3>{players.player}</h3>
+            <a href={`./players/${players.playerId}`}>{players.player}</a>
             <p>{players.stl}</p>
           </div>
         ))}
@@ -146,7 +146,7 @@ class Home extends React.Component {
               }
               alt="player-headshot"
             />
-            <h3>{players.player}</h3>
+            <a href={`./players/${players.playerId}`}>{players.player}</a>
             <p>{players.blk}</p>
           </div>
         ))}
