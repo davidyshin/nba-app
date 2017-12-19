@@ -68,10 +68,10 @@ class List extends React.Component {
     const visiblePlayer = 
       searchString.length > 2
         ? this.players.filter(player =>
-            player.downcaseName.includes(searchString)
+            player.downcaseName.includes(searchString.toLowerCase())
           )
         : this.players.filter(player =>
-            player.downcaseName.startsWith(searchString)
+            player.downcaseName.startsWith(searchString.toLowerCase())
           );
     const curry = nba.findPlayer("Stephen Curry");
     console.log(nba.stats.playerInfo({ PlayerID: curry.playerId }));

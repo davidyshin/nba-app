@@ -26,14 +26,11 @@ const Profile = (props) => {
     const players = getAllPlayers()
     const id = props.match.params.id
     const player = players.filter(n => parseInt(n.playerId) === parseInt(id))[0]
-
-    console.log(player)
   return (
     <div className="profile" key={player.playerId}>
     <h1> {player.firstName} {player.lastName} </h1>
     <h3> Player ID : {player.playerId} </h3>
     <h3> Team ID : {player.teamId} </h3>
-    
     <img src={player.url} alt="player-headshot"/>
     <br></br>
     <Link to='/players'>Back</Link>
