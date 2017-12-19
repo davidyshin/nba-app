@@ -1,10 +1,6 @@
 
 
-- [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
+
 ## NBA PLAYERS APP
 
 Currently a work-in-progress App that displays and renders up-to-date stats on every player and team in the NBA.
@@ -23,6 +19,10 @@ Every player has a respective profile page detailing their stats/averages
 ## Available Scripts
 
 In the project directory, you can run:
+  - [npm start](#npm-start)
+  - [npm test](#npm-test)
+  - [npm run build](#npm-run-build)
+  - [npm run eject](#npm-run-eject)
 
 ### `npm start`
 
