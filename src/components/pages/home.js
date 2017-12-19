@@ -63,37 +63,95 @@ class Home extends React.Component {
       });
   }
   render() {
-    let pointLeaders = [...this.state.pointLeaders]
-    let assistLeaders = [...this.state.assistLeaders]
-    let reboundLeaders = [...this.state.reboundLeaders]
-      return (
-        <div>
+    let pointLeaders = [...this.state.pointLeaders];
+    let assistLeaders = [...this.state.assistLeaders];
+    let reboundLeaders = [...this.state.reboundLeaders];
+    let stealLeaders = [...this.state.stealLeaders];
+    let blockLeaders = [...this.state.blockLeaders];
+    return (
+      <div>
         <h1>Point Leaders</h1>
-        {pointLeaders.map(players => 
-        <div key={players.rank}>
-        <h4>Rank {players.rank} </h4>
-        <img src={getAllPlayers().filter(n => parseInt(n.playerId) === parseInt(players.playerId))[0].url} alt="player-headshot" />
-        <h4>{players.player}</h4>
-        <h4>{players.pts}</h4>
-        </div>)}
-        <h1> Assist Leaders </h1>
-        {assistLeaders.map(players => 
+        {pointLeaders.map(players => (
           <div key={players.rank}>
-          <h4>Rank {players.rank} </h4>
-          <img src={getAllPlayers().filter(n => parseInt(n.playerId) === parseInt(players.playerId))[0].url} alt="player-headshot" />
-          <h4>{players.player}</h4>
-          <h4>{players.ast}</h4>
-          </div>)}
-          <h1> Rebound Leaders </h1>
-          {reboundLeaders.map(players => 
-            <div key={players.rank}>
-            <h4>Rank {players.rank} </h4>
-            <img src={getAllPlayers().filter(n => parseInt(n.playerId) === parseInt(players.playerId))[0].url} alt="player-headshot" />
-            <h4>{players.player}</h4>
-            <h4>{players.reb}</h4>
-            </div>)}
-        </div>
-      )
+            <h3>Rank {players.rank} </h3>
+            <img
+              src={
+                getAllPlayers().filter(
+                  n => parseInt(n.playerId) === parseInt(players.playerId)
+                )[0].url
+              }
+              alt="player-headshot"
+            />
+            <h3>{players.player}</h3>
+            <p>{players.pts}</p>
+          </div>
+        ))}
+        <h1> Assist Leaders </h1>
+        {assistLeaders.map(players => (
+          <div key={players.rank}>
+            <h3>Rank {players.rank} </h3>
+            <img
+              src={
+                getAllPlayers().filter(
+                  n => parseInt(n.playerId) === parseInt(players.playerId)
+                )[0].url
+              }
+              alt="player-headshot"
+            />
+            <h3>{players.player}</h3>
+            <p>{players.ast}</p>
+          </div>
+        ))}
+        <h1> Rebound Leaders </h1>
+        {reboundLeaders.map(players => (
+          <div key={players.rank}>
+            <h3>Rank {players.rank} </h3>
+            <img
+              src={
+                getAllPlayers().filter(
+                  n => parseInt(n.playerId) === parseInt(players.playerId)
+                )[0].url
+              }
+              alt="player-headshot"
+            />
+            <h3>{players.player}</h3>
+            <p>{players.reb}</p>
+          </div>
+        ))}
+        <h1> Steal Leaders </h1>
+        {stealLeaders.map(players => (
+          <div key={players.rank}>
+            <h3>Rank {players.rank} </h3>
+            <img
+              src={
+                getAllPlayers().filter(
+                  n => parseInt(n.playerId) === parseInt(players.playerId)
+                )[0].url
+              }
+              alt="player-headshot"
+            />
+            <h3>{players.player}</h3>
+            <p>{players.stl}</p>
+          </div>
+        ))}
+        <h1> Block Leaders </h1>
+        {blockLeaders.map(players => (
+          <div key={players.rank}>
+            <h3>Rank {players.rank} </h3>
+            <img
+              src={
+                getAllPlayers().filter(
+                  n => parseInt(n.playerId) === parseInt(players.playerId)
+                )[0].url
+              }
+              alt="player-headshot"
+            />
+            <h3>{players.player}</h3>
+            <p>{players.blk}</p>
+          </div>
+        ))}
+      </div>
+    );
   }
 }
 export default Home;
