@@ -2,21 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import nba from "nba";
 const getAllPlayers = () => {
-  const players = nba.players;
-  for (let i = 0; i < players.length; i++) {
-    players[i].firstName = players[i].firstName.replace(" ", "_");
-    players[i].lastName = players[i].lastName.replace(" ", "_");
-    players[i].firstName = players[i].firstName.replace(".", "");
-    players[i].lastName = players[i].lastName.replace(".", "");
-  }
-  for (let i = 0; i < players.length; i++) {
-    players[i].url = `https://nba-players.herokuapp.com/players/${
-      players[i].lastName
-    }/${players[i].firstName}`;
-  }
-  return players;
-};
-
+    const players = nba.players;
+    for (let i = 0; i < players.length; i++) {
+      players[i].firstName = players[i].firstName.replace(" ", "_");
+      players[i].lastName = players[i].lastName.replace(" ", "_");
+      players[i].firstName = players[i].firstName.replace(".", "");
+      players[i].lastName = players[i].lastName.replace(".", "");
+    }
+    for (let i = 0; i < players.length; i++) {
+      players[i].url = `https://nba-players.herokuapp.com/players/${
+        players[i].lastName
+      }/${players[i].firstName}`;
+    }
+    return players;
+  };
+  
 // The Player looks up the player using the number parsed from
 // the URL's pathname. If no player is found with the given
 // number, then a "player not found" message is displayed.
@@ -44,6 +44,10 @@ class Profile extends React.Component {
           commonInfo: stats.commonPlayerInfo[0]
         });
       });
+      nba.stats.homepageV2({StatType: "Traditional", GameScope: "Season", PlayerScope: "All Players"})
+      .then(result => {
+          console.log(result)
+      })
   }
 
   render() {
