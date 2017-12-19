@@ -13,7 +13,7 @@ class Teams extends React.Component {
     })
     this.nbaTeams = teams
   }
-  hndChange = e => {
+  handleChange = e => {
     this.setState({
 
     })

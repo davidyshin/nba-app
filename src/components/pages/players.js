@@ -3,6 +3,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch, Link } from "react-router-dom";
 
+// Function gets a list of all players (including but not limited to name, playerID, teamID)
+// Also loops through this list (object) and adds a url to respective player's headshot according to
+// first name and lastname (line 20-23)
+
+// WILL EXPORT AND IMPORT THIS FUNCTION FROM ONE FILES.
+
 
 const getAllPlayers = () => {
   const players = nba.players;
@@ -20,7 +26,7 @@ const getAllPlayers = () => {
   return players;
 };
 
-
+// Shell container with search bar, passes search value as a prop to the "List" component and renders List
 class Players extends React.Component {
   constructor() {
     super();
@@ -56,6 +62,10 @@ class Players extends React.Component {
   }
 }
 
+//Full list of players, takes searchString as prop from "Players" component, filters out according to it.
+
+
+
 class List extends React.Component {
   constructor() {
     super();
@@ -73,6 +83,7 @@ class List extends React.Component {
         : this.players.filter(player =>
             player.downcaseName.startsWith(searchString.toLowerCase())
           );
+//Filtered list is mapped through then rendered for each including a link that routes to /players/:id
 
     return visiblePlayer.map(player => (
       <div className="playerCard" key={player.playerId}>
