@@ -126,7 +126,7 @@ class Home extends React.Component {
               alt="player-headshot"
             />
             <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <p>{players.pts}</p>
+            <h1>{players.pts}</h1>
           </div>
         ))}
         <h1> Assist Leaders </h1>
@@ -142,7 +142,7 @@ class Home extends React.Component {
               alt="player-headshot"
             />
             <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <p>{players.ast}</p>
+            <h1>{players.ast}</h1>
           </div>
         ))}
         <h1> Rebound Leaders </h1>
@@ -158,7 +158,7 @@ class Home extends React.Component {
               alt="player-headshot"
             />
             <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <p>{players.reb}</p>
+            <h1>{players.reb}</h1>
           </div>
         ))}
         <h1> Steal Leaders </h1>
@@ -174,7 +174,7 @@ class Home extends React.Component {
               alt="player-headshot"
             />
             <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <p>{players.stl}</p>
+            <h1>{players.stl}</h1>
           </div>
         ))}
         <h1> Block Leaders </h1>
@@ -190,7 +190,7 @@ class Home extends React.Component {
               alt="player-headshot"
             />
             <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <p>{players.blk}</p>
+            <h1>{players.blk}</h1>
           </div>
         ))}
       </div>
