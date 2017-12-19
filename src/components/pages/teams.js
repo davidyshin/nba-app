@@ -1,6 +1,6 @@
-const React = require('react')
-const ReactDom = require('react-dom')
-const nba = require('nba')
+import React from 'react'
+import ReactDom from 'react-dom'
+import nba from 'nba'
 
 const teams = nba.teams
 
@@ -25,12 +25,12 @@ class Teams extends React.Component {
       <div>
         {this.nbaTeams.map(val => (
           <div>
-              <h3>{val.teamName}</h3>
-              <p>
-              <img src = {val.logo}/>
-              </p>
+            <h3>{val.teamName}</h3>
+            <p>
+              <img src={val.logo} />
+            </p>
           </div>
-          )
+        )
         )}
       </div>
     )
