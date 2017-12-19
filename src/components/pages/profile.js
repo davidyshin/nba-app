@@ -24,8 +24,8 @@ const getAllPlayers = () => {
 // number, then a "player not found" message is displayed.
 const Profile = (props) => {
     const players = getAllPlayers()
+    const player = players.filter(n => n.playerId === id)
     const id = props.match.params.id
-    let player = players.filter(n => n.playerId === id)
 
   return (
     <div className="profile" key={player.playerId}>
