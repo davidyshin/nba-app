@@ -61,8 +61,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 
 ## Author
-[David Shin](https://github.com/davidyshin)
+*[David Shin](https://github.com/davidyshin)
 
 ## Contributors 
-[Simon Gaviria](https://github.com/simongaviria1)
-[Xavier Munroe](https://github.com/XavierC4Q)
+*[Simon Gaviria](https://github.com/simongaviria1)
+*[Xavier Munroe](https://github.com/XavierC4Q)
