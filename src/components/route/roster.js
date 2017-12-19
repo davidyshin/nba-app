@@ -8,7 +8,7 @@ import Profile from '../pages/profile'
 const Roster = () => (
   <Switch>
     <Route exact path='/players' component={Players}/>
-    <Route path='/players/:id' component={Profile}/>
+    <Route path='/players/:id' component={Profile} />
   </Switch>
 )
 

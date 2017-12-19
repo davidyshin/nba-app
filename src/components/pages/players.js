@@ -73,8 +73,7 @@ class List extends React.Component {
         : this.players.filter(player =>
             player.downcaseName.startsWith(searchString.toLowerCase())
           );
-    const curry = nba.findPlayer("Stephen Curry");
-    console.log(nba.stats.playerInfo({ PlayerID: curry.playerId }));
+
     return visiblePlayer.map(player => (
       <div className="playerCard" key={player.playerId}>
         <Link to={`/players/${player.playerId}`}>
