@@ -1,28 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import nba from "nba";
-
-// Function gets a list of all players (including but not limited to name, playerID, teamID)
-// Also loops through this list (object) and adds a url to respective player's headshot according to
-// first name and lastname (line 20-23)
-
-// WILL EXPORT AND IMPORT THIS FUNCTION FROM ONE FILES.
-
-const getAllPlayers = () => {
-  const players = nba.players;
-  for (let i = 0; i < players.length; i++) {
-    players[i].firstName = players[i].firstName.replace(" ", "_");
-    players[i].lastName = players[i].lastName.replace(" ", "_");
-    players[i].firstName = players[i].firstName.replace(".", "");
-    players[i].lastName = players[i].lastName.replace(".", "");
-  }
-  for (let i = 0; i < players.length; i++) {
-    players[i].url = `https://nba-players.herokuapp.com/players/${
-      players[i].lastName
-    }/${players[i].firstName}`;
-  }
-  return players;
-};
+import {getAllPlayers} from './players.js'
 
 //Profile component for specific player profiles
 

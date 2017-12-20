@@ -2,31 +2,7 @@ import nba from "nba";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch, Link } from "react-router-dom";
-
-
-
-// Function gets a list of all players (including but not limited to name, playerID, teamID)
-// Also loops through this list (object) and adds a url to respective player's headshot according to
-// first name and lastname (line 20-23) 
-
-// WILL EXPORT AND IMPORT THIS FUNCTION FROM ONE FILES.
-
-const getAllPlayers = () => {
-  const players = nba.players;
-  for (let i = 0; i < players.length; i++) {
-    players[i].firstName = players[i].firstName.replace(" ", "_");
-    players[i].lastName = players[i].lastName.replace(" ", "_");
-    players[i].firstName = players[i].firstName.replace(".", "");
-    players[i].lastName = players[i].lastName.replace(".", "");
-  }
-  for (let i = 0; i < players.length; i++) {
-    players[i].url = `https://nba-players.herokuapp.com/players/${
-      players[i].lastName
-    }/${players[i].firstName}`;
-  }
-  return players;
-};
-
+import {getAllPlayers} from './players.js'
 
 //Reference for API (nba.stats.leagueGameLog (for players)), will be used in the future 
 //to update most recent game stats for player.
@@ -43,7 +19,7 @@ const getAllPlayers = () => {
 // 
 
 
-// const REFERENCE =  { SEASON_ID: 0, PLAYER_ID: 1, PLAYER_NAME: 2, TEAM_ID: 3,
+// const reference =  { SEASON_ID: 0, PLAYER_ID: 1, PLAYER_NAME: 2, TEAM_ID: 3,
 //   TEAM_ABBREVIATION: 4, TEAM_NAME: 5, GAME_ID: 6, GAME_DATE: 7,
 //   MATCHUP: 8, WL: 9, MIN: 10, FGM: 11, FGA: 12, FG_PCT: 13,
 //   FG3M: 14, FG3A: 15, FG3_PCT: 16, FTM: 17, FTA: 18, FT_PCT: 19,

@@ -6,10 +6,6 @@ import { Router, Route, Switch, Link } from "react-router-dom";
 // Function gets a list of all players (including but not limited to name, playerID, teamID)
 // Also loops through this list (object) and adds a url to respective player's headshot according to
 // first name and lastname (line 20-23)
-
-// WILL EXPORT AND IMPORT THIS FUNCTION FROM ONE FILES.
-
-
 const getAllPlayers = () => {
   const players = nba.players;
   for (let i = 0; i < players.length; i++) {
@@ -96,6 +92,6 @@ class List extends React.Component {
   }
 }
 
-
+export {getAllPlayers}
 export default Players
 console.log(getAllPlayers());
