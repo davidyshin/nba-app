@@ -45,6 +45,7 @@ class Profile extends React.Component {
         <h1>
           {commonInfo.firstName} {commonInfo.lastName}{" "}
         </h1>
+        <img src={player.url} alt="player-headshot" />
         <p> Player ID : {commonInfo.personId} </p>
         <p>
           Team : {commonInfo.teamCity} {commonInfo.teamName}
@@ -57,7 +58,7 @@ class Profile extends React.Component {
         <p> PPG : {stats.pts}</p>
         <p> RPG : {stats.reb}</p>
         <p> APG : {stats.ast}</p>
-        <img src={player.url} alt="player-headshot" />
+
         <br />
         <Link to="/players">Back</Link>
       </div>
