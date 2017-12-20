@@ -60,8 +60,6 @@ class Players extends React.Component {
 
 //Full list of players, takes searchString as prop from "Players" component, filters out according to it.
 
-
-
 class List extends React.Component {
   constructor() {
     super();
@@ -71,7 +69,7 @@ class List extends React.Component {
 
   render() {
     const searchString = this.props.searchString;
-    const visiblePlayer = 
+    const visiblePlayer =
       searchString.length > 2
         ? this.players.filter(player =>
             player.downcaseName.includes(searchString.toLowerCase())
@@ -79,7 +77,7 @@ class List extends React.Component {
         : this.players.filter(player =>
             player.downcaseName.startsWith(searchString.toLowerCase())
           );
-//Filtered list is mapped through then rendered for each including a link that routes to /players/:id
+    //Filtered list is mapped through then rendered for each including a link that routes to /players/:id
 
     return visiblePlayer.map(player => (
       <div className="playerCard" key={player.playerId}>
@@ -92,6 +90,5 @@ class List extends React.Component {
   }
 }
 
-export {getAllPlayers}
-export default Players
-console.log(getAllPlayers());
+export { getAllPlayers };
+export default Players;

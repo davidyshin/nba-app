@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import nba from "nba";
-import {getAllPlayers} from './players.js'
+import { getAllPlayers } from "./players.js";
 
 //Profile component for specific player profiles
 
@@ -30,15 +30,6 @@ class Profile extends React.Component {
           commonInfo: stats.commonPlayerInfo[0]
         });
       });
-    nba.stats
-      .homepageV2({
-        StatType: "Traditional",
-        GameScope: "Season",
-        PlayerScope: "All Players"
-      })
-      .then(result => {
-        console.log(result);
-      });
   }
 
   // Code is pretty dry, could use refactoring
@@ -49,19 +40,20 @@ class Profile extends React.Component {
     let player = getAllPlayers().filter(
       n => parseInt(n.playerId) === parseInt(this.id)
     )[0];
-    console.log(commonInfo);
     return (
       <div className="profile" key="players">
         <h1>
           {commonInfo.firstName} {commonInfo.lastName}{" "}
         </h1>
-        <h3> Player ID : {commonInfo.personId} </h3>
-        <h3> Team : {commonInfo.teamCity} {commonInfo.teamName}</h3>
-        <h3> Team ID : {commonInfo.teamId} </h3>
-        <h3> Position : {commonInfo.position}</h3>
-        <h3> Jersey # : {commonInfo.jersey} </h3>
-        <h3> Weight : {commonInfo.weight}lb</h3>
-   
+        <p> Player ID : {commonInfo.personId} </p>
+        <p>
+          Team : {commonInfo.teamCity} {commonInfo.teamName}
+        </p>
+        <p> Team ID : {commonInfo.teamId} </p>
+        <p> Position : {commonInfo.position}</p>
+        <p> Jersey # : {commonInfo.jersey} </p>
+        <p> Weight : {commonInfo.weight}lb</p>
+
         <p> PPG : {stats.pts}</p>
         <p> RPG : {stats.reb}</p>
         <p> APG : {stats.ast}</p>

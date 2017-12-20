@@ -2,13 +2,12 @@ import nba from "nba";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch, Link } from "react-router-dom";
-import {getAllPlayers} from './players.js'
+import { getAllPlayers } from "./players.js";
 
-//Reference for API (nba.stats.leagueGameLog (for players)), will be used in the future 
+//Reference for API (nba.stats.leagueGameLog (for players)), will be used in the future
 //to update most recent game stats for player.
 
-
-// TODO : 
+// TODO :
 // 1. Styling
 // 2. Player profile card displays ppg,apg,rpg, contains links to all other stats
 // 3. Eventually, player profile card will display most recent games and stats for respective player
@@ -16,8 +15,7 @@ import {getAllPlayers} from './players.js'
 // 5. Specific Team profile pages, that displays ppg, apg, rpg, contains links to all other stats and players.
 // 6. Team logo's working
 // 7. Refactor code
-// 
-
+//
 
 // const reference =  { SEASON_ID: 0, PLAYER_ID: 1, PLAYER_NAME: 2, TEAM_ID: 3,
 //   TEAM_ABBREVIATION: 4, TEAM_NAME: 5, GAME_ID: 6, GAME_DATE: 7,
@@ -25,7 +23,6 @@ import {getAllPlayers} from './players.js'
 //   FG3M: 14, FG3A: 15, FG3_PCT: 16, FTM: 17, FTA: 18, FT_PCT: 19,
 //   OREB: 20, DREB: 21, REB: 22, AST: 23, STL: 24, BLK: 25, TOV: 26,
 //   PF: 27, PTS: 28, PLUS_MINUS: 29, VIDEO_AVAILABLE: 30}
-
 
 // Home component renders season leaders for specific stats (point, rebound, assist, steal, block)
 class Home extends React.Component {
@@ -40,8 +37,8 @@ class Home extends React.Component {
     };
     this.id = window.location.pathname.slice(9);
   }
-//after component mounts, the script digs into the api and 
-//gets data and assigns it to the state
+  //after component mounts, the script digs into the api and
+  //gets data and assigns it to the state
   componentDidMount() {
     nba.stats
       .playerInfo({
@@ -71,16 +68,22 @@ class Home extends React.Component {
           blockLeaders: result.homePageStat8
         });
       });
-      nba.stats.leagueGameLog({PlayerOrTeam: "P"})
-      .then(result=> {
-        console.log(result.resultSets[0])
-      console.log(result.resultSets[0].rowSet.filter(n=> parseInt(n[1]) === 203083))});
+    nba.stats.leagueGameLog({ PlayerOrTeam: "P" }).then(result => {
+      console.log(result.resultSets[0]);
+      console.log(
+        result.resultSets[0].rowSet.filter(n => parseInt(n[1]) === 203083)
+      );
+    }); 
+    // ^ nba.stats.leagueGameLog will be used to fetch 
+    // data for most recent games stats for specific player
+    // currently line 74 is filtering games for player id 203083 (andre drummond)
+    // ^ will add to players profile card (atleast 5 most recent games / stats)
   }
 
 
-
-// Code is pretty dry, could use refactoring
-// creates a div for each stat table and renders respectively
+  
+  // Code is pretty dry, could use refactoring
+  // creates a div for each stat table and renders respectively
   render() {
     let pointLeaders = [...this.state.pointLeaders];
     let assistLeaders = [...this.state.assistLeaders];
