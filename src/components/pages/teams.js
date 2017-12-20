@@ -4,38 +4,36 @@ import nba from 'nba'
 
 const teams = nba.teams
 
-
 class Teams extends React.Component {
   constructor() {
     super()
     this.state = ({
       pHolder: ''
     })
-    this.nbaTeams = teams
   }
+
   handleChange = e => {
     this.setState({
 
     })
   }
 
-  render() {
+  drawTeams() {
+    return teams.map(team => (
+      <div key={ team.teamName } >
+        <h3>{ team.teamName }</h3>
+        <p><img src={ team.logo } /></p>
+      </div>
+    ))
+  }
 
+  render() {
     return (
       <div>
-        {this.nbaTeams.map(val => (
-          <div>
-            <h3>{val.teamName}</h3>
-            <p>
-              <img src={val.logo} />
-            </p>
-          </div>
-        )
-        )}
+        { this.drawTeams() }
       </div>
     )
   }
 }
-
 
 export default Teams
