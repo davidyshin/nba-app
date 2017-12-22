@@ -86,13 +86,13 @@ class Profile extends React.Component {
         <br />
         <div>
 
-          <h1> Most Recent Games</h1>
+          <h3> Most Recent Games</h3>
           {this.state.games.reverse().map(ele => (
             <div>
-              <h1>Date: {ele.date} </h1>
-              <h1>Points: {ele.points}</h1>
-              <h1>Assists: {ele.assists}</h1>
-              <h1>Rebound: {ele.rebounds}</h1>
+              <p>Date: {ele.date} </p>
+              <p>Points: {ele.points}</p>
+              <p>Assists: {ele.assists}</p>
+              <p>Rebound: {ele.rebounds}</p>
             </div>
           ))}
         </div>
