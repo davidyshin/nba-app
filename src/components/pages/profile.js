@@ -34,10 +34,10 @@ class Profile extends React.Component {
       let filtered = data.resultSets[0].rowSet
         .filter(n => parseInt(n[1]) === parseInt(this.id))
         .sort().slice(-5);
-
+      console.log(filtered)
       let last5Games = filtered.map(n => {
         return {
-          date: n[7],
+          date: `${n[7]}   ${n[8]}`,
           points: n[28],
           assists: n[23],
           rebounds: n[22]
