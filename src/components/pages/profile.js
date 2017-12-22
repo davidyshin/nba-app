@@ -10,7 +10,8 @@ class Profile extends React.Component {
     super();
     this.state = {
       stats: "",
-      commonInfo: ""
+      commonInfo: "",
+      games: []
     };
     this.id = window.location.pathname.slice(9);
   }
@@ -21,17 +22,32 @@ class Profile extends React.Component {
       .playerInfo({
         PlayerID: this.id
       })
-      .then(result => {
-        return result;
-      })
       .then(stats => {
         this.setState({
           stats: stats.playerHeadlineStats[0],
           commonInfo: stats.commonPlayerInfo[0]
         });
       });
-  }
 
+    nba.stats.leagueGameLog({ PlayerOrTeam: "P" }).then(data => {
+      console.log(data.resultSets[0]);
+      let filtered = data.resultSets[0].rowSet
+        .filter(n => parseInt(n[1]) === parseInt(this.id))
+        .sort().slice(-5);
+
+      let last5Games = filtered.map(n => {
+        return {
+          date: n[7],
+          points: n[28],
+          assists: n[23],
+          rebounds: n[22]
+        }
+      })
+      this.setState({
+        games: last5Games
+      });
+    });
+  }
   // Code is pretty dry, could use refactoring
   // creates a div for each player and renders respectively (playerid, teamid, position, jersey, ppg,rpg,apg, player image)
   render() {
@@ -54,16 +70,28 @@ class Profile extends React.Component {
         <p> Position : {commonInfo.position}</p>
         <p> Jersey # : {commonInfo.jersey} </p>
         <p> Weight : {commonInfo.weight}lb</p>
-
         <p> PPG : {stats.pts}</p>
         <p> RPG : {stats.reb}</p>
         <p> APG : {stats.ast}</p>
+        <br />
+        <div>
 
+          <h1> Most Recent Games</h1>
+          {this.state.games.reverse().map(ele => (
+            <div>
+              <h1>Date: {ele.date} </h1>
+              <h1>Points: {ele.points}</h1>
+              <h1>Assists: {ele.assists}</h1>
+              <h1>Rebound: {ele.rebounds}</h1>
+            </div>
+          ))}
+        </div>
         <br />
         <Link to="/players">Back</Link>
       </div>
     );
   }
 }
+
 
 export default Profile;

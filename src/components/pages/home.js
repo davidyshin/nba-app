@@ -68,12 +68,6 @@ class Home extends React.Component {
           blockLeaders: result.homePageStat8
         });
       });
-    nba.stats.leagueGameLog({ PlayerOrTeam: "P" }).then(result => {
-      console.log(result.resultSets[0]);
-      console.log(
-        result.resultSets[0].rowSet.filter(n => parseInt(n[1]) === 203083)
-      );
-    }); 
     // ^ nba.stats.leagueGameLog will be used to fetch 
     // data for most recent games stats for specific player
     // currently line 74 is filtering games for player id 203083 (andre drummond)
