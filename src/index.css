@@ -7,7 +7,7 @@ body {
 	padding: 0;
 	height: 100%;
 	width: 100%;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -24,7 +24,10 @@ li a{
 }
 
 .playerCard {
-	border: solid black 1.5px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	
 }
 
 a {
