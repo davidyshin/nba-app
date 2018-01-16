@@ -3,7 +3,7 @@
 
 ## NBA PLAYERS APP
 
-Currently a work-in-progress App that displays and renders up-to-date stats on every player and team in the NBA.
+Currently a work-in-progress App that displays and renders up-to-date stats on every player and team in the NBA. Data is grabbed from the official NBA API.
 
 Displays season leaders for each stat category, as well as their averages.
 
@@ -17,7 +17,7 @@ Search by player name functionality:
 ![players](./public/playersearch.gif)
 
 Individual profiles including detailed data and stats from the respective player's 5 most recent games:
-![profile1](./public/profile1.png) ![profile2](./public/profile1.png)
+![profile1](./public/profile.png)
 
 
 ## Built using: 
