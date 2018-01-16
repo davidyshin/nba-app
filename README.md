@@ -7,7 +7,18 @@ Currently a work-in-progress App that displays and renders up-to-date stats on e
 
 Displays season leaders for each stat category, as well as their averages.
 
+## Features
 Every player has a respective profile page detailing their stats/averages
+
+Leaderboards for 5 different stat categories:
+![leader](./public/leaderboard.png)
+
+Search by player name functionality: 
+![players](./public/playersearch.gif)
+
+Individual profiles including detailed data and stats from the respective player's 5 most recent games:
+![profile1](./public/profile1.png) ![profile2](./public/profile1.png)
+
 
 ## Built using: 
 * JavaScript(ES2016)
@@ -62,7 +73,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Author
 [David Shin](https://github.com/davidyshin)
-
-## Contributors 
-[Simon Gaviria](https://github.com/simongaviria1)
-[Xavier Munroe](https://github.com/XavierC4Q)

@@ -17,8 +17,6 @@ import { getAllPlayers } from "./players.js";
 // 7. Refactor code
 //
 
-
-
 // Home component renders season leaders for specific stats (point, rebound, assist, steal, block)
 class Home extends React.Component {
   constructor() {
@@ -63,14 +61,12 @@ class Home extends React.Component {
           blockLeaders: result.homePageStat8
         });
       });
-    // ^ nba.stats.leagueGameLog will be used to fetch 
+    // ^ nba.stats.leagueGameLog will be used to fetch
     // data for most recent games stats for specific player
     // currently line 74 is filtering games for player id 203083 (andre drummond)
     // ^ will add to players profile card (atleast 5 most recent games / stats)
   }
 
-
-  
   // Code is pretty dry, could use refactoring
   // creates a div for each stat table and renders respectively
   render() {
@@ -80,93 +76,128 @@ class Home extends React.Component {
     let stealLeaders = [...this.state.stealLeaders];
     let blockLeaders = [...this.state.blockLeaders];
     return (
-      <div>
-        <h1>Point Leaders</h1>
-        {pointLeaders.map(players => (
-          <div key={players.rank}>
-            <h3>Rank {players.rank} </h3>
-            <img
-              src={
-                getAllPlayers().filter(
-                  n => parseInt(n.playerId) === parseInt(players.playerId)
-                )[0].url
-              }
-              alt="player-headshot"
-            />
-            <br></br>
-            <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <h1>{players.pts} PPG</h1>
-          </div>
-        ))}
-        <h1> Assist Leaders </h1>
-        {assistLeaders.map(players => (
-          <div key={players.rank}>
-            <h3>Rank {players.rank} </h3>
-            <img
-              src={
-                getAllPlayers().filter(
-                  n => parseInt(n.playerId) === parseInt(players.playerId)
-                )[0].url
-              }
-              alt="player-headshot"
-            />
-            <br></br>
-            <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <h1>{players.ast} APG</h1>
-          </div>
-        ))}
-        <h1> Rebound Leaders </h1>
-        {reboundLeaders.map(players => (
-          <div key={players.rank}>
-            <h3>Rank {players.rank} </h3>
-            <img
-              src={
-                getAllPlayers().filter(
-                  n => parseInt(n.playerId) === parseInt(players.playerId)
-                )[0].url
-              }
-              alt="player-headshot"
-            />
-            <br></br>            
-            <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <h1>{players.reb} RPG</h1>
-          </div>
-        ))}
-        <h1> Steal Leaders </h1>
-        {stealLeaders.map(players => (
-          <div key={players.rank}>
-            <h3>Rank {players.rank} </h3>
-            <img
-              src={
-                getAllPlayers().filter(
-                  n => parseInt(n.playerId) === parseInt(players.playerId)
-                )[0].url
-              }
-              alt="player-headshot"
-            />
-            <br></br>            
-            <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <h1>{players.stl} SPG</h1>
-          </div>
-        ))}
-        <h1> Block Leaders </h1>
-        {blockLeaders.map(players => (
-          <div key={players.rank}>
-            <h3>Rank {players.rank} </h3>
-            <img
-              src={
-                getAllPlayers().filter(
-                  n => parseInt(n.playerId) === parseInt(players.playerId)
-                )[0].url
-              }
-              alt="player-headshot"
-            />
-            <br></br>
-            <a href={`./players/${players.playerId}`}>{players.player}</a>
-            <br></br>            
-            <h1>{players.blk} BPG</h1>
-          </div>
-        ))}
+      <div class="leaderboard">
+        <div class="leaders">
+          <h1>Point Leaders</h1>
+          {pointLeaders.map(players => (
+            <div key={players.rank}>
+              <h2>Rank {players.rank} </h2>
+              <a href={`./players/${players.playerId}`}>
+              <div className="image-circle">
+                <img
+                  class="proPic"
+                  src={
+                    getAllPlayers().filter(
+                      n => parseInt(n.playerId) === parseInt(players.playerId)
+                    )[0].url
+                  }
+                  alt="player-headshot"
+                />
+              </div>
+              </a>
+              <br />
+              <a href={`./players/${players.playerId}`}>{players.player}</a>
+              <h3>{players.pts} PPG</h3>
+            </div>
+          ))}
+        </div>
+        <div class="leaders">
+          <h1> Assist Leaders </h1>
+          {assistLeaders.map(players => (
+            <div key={players.rank}>
+              <h2>Rank {players.rank} </h2>
+              <a href={`./players/${players.playerId}`}>
+              <div className="image-circle">
+                <img
+                  class="proPic"
+                  src={
+                    getAllPlayers().filter(
+                      n => parseInt(n.playerId) === parseInt(players.playerId)
+                    )[0].url
+                  }
+                  alt="player-headshot"
+                />
+              </div>
+              </a>
+              <br />
+              <a href={`./players/${players.playerId}`}>{players.player}</a>
+              <h3>{players.ast} APG</h3>
+            </div>
+          ))}
+        </div>
+        <div class="leaders">
+          <h1> Rebound Leaders </h1>
+          {reboundLeaders.map(players => (
+            <div key={players.rank}>
+              <h2>Rank {players.rank} </h2>
+              <a href={`./players/${players.playerId}`}>
+              <div className="image-circle">
+                <img
+                  class="proPic"
+                  src={
+                    getAllPlayers().filter(
+                      n => parseInt(n.playerId) === parseInt(players.playerId)
+                    )[0].url
+                  }
+                  alt="player-headshot"
+                />
+              </div>
+              </a>
+              <br />
+              <a href={`./players/${players.playerId}`}>{players.player}</a>
+              <h3>{players.reb} RPG</h3>
+            </div>
+          ))}
+        </div>
+        <div class="leaders">
+          <h1> Steal Leaders </h1>
+          {stealLeaders.map(players => (
+            <div key={players.rank}>
+              <h2>Rank {players.rank} </h2>
+              <a href={`./players/${players.playerId}`}>
+              <div className="image-circle">
+                <img
+                  class="proPic"
+                  src={
+                    getAllPlayers().filter(
+                      n => parseInt(n.playerId) === parseInt(players.playerId)
+                    )[0].url
+                  }
+                  alt="player-headshot"
+                />
+              </div>
+              </a>
+              <br />
+              <a href={`./players/${players.playerId}`}>{players.player}</a>
+              <h3>{players.stl} SPG</h3>
+            </div>
+          ))}
+        </div>
+        <div class="leaders">
+          <h1> Block Leaders </h1>
+          {blockLeaders.map(players => (
+            <div key={players.rank}>
+              <h2>Rank {players.rank} </h2>
+              <a href={`./players/${players.playerId}`}>
+              <div className="image-circle">
+                <img
+                  class="proPic"
+                  src={
+                    getAllPlayers().filter(
+                      n => parseInt(n.playerId) === parseInt(players.playerId)
+                    )[0].url
+                  }
+                  alt="player-headshot"
+                />
+              </div>
+              </a>
+              <br />
+              <a href={`./players/${players.playerId}`}>{players.player}</a>
+              <br />
+              <h3>{players.blk} BPG</h3>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

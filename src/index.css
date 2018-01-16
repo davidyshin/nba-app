@@ -1,40 +1,110 @@
-/*  display-role reset for older browsers */
-body {
-	display:flex;
-	justify-content: center;
-	align-content: center;
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
+header ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+header li {
+  padding: 0 15px 0 15px;
+}
+main {
   margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  color: rgb(41, 211, 42);
+}
+body {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: white;
+  flex-direction: row;
+}
+ol,
+ul {
+  list-style: none;
+  font-size: 30px;
+  padding: 0;
 }
 
-
-ol, ul {
-	list-style: none;
-	flex-direction: row;
-
+.players-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
 }
-li a{
-	text-align: center;
-	display: flex;
-	align-content: space-around;
-	justify-content: center;
+
+.players-header {
+  padding-bottom: 3%;
+  text-align: center;
+  justify-content: center;
+}
+
+.searchBar {
+  width: 50%;
+  height: 30%;
+  font-size: 20px;
 }
 
 .playerCard {
-	display: flex;
-	align-content: center;
-	justify-content: center;
-	
+  font-size: 13px;
+  margin: 10px;
+}
+
+.leaderboard {
+  width: 100%;
+  font-size: 13px;
+  flex-direction: column;
+  display: flex;
+}
+.leaders {
+  flex-direction: row;
+  display: flex;
+}
+.image-circle {
+  border-width: 1px;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+img {
+  -webkit-transform: scale(0.75); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.75); /* FF3.5+ */
+      -ms-transform: scale(0.75); /* IE9 */
+       -o-transform: scale(0.75); /* Opera 10.5+ */
+          transform: scale(0.75);
+             /* IE6–IE9 */
+             filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9999619230641713, M12=-0.008726535498373935, M21=0.008726535498373935, M22=0.9999619230641713,SizingMethod='auto expand');
+}​
+img:hover {
+  background-color: black;
+}
+
+.proPic {
+  background-color: white;
+  margin-left: -35%;
+}
+
+.leaders h1 {
+  border-bottom: rgb(41, 211, 4) 2px;
+}
+.leaders h2 {
+  text-decoration: underline;
 }
 
 a {
-  color: #049c3c;
+  color: rgb(41, 211, 4);
   text-decoration: none;
 }
 
 a:hover {
-  color: #025c23;
+  color: rgb(21, 147, 25);
 }

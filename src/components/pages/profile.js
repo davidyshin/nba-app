@@ -71,7 +71,9 @@ class Profile extends React.Component {
         <h1>
           {commonInfo.firstName} {commonInfo.lastName}{" "}
         </h1>
-        <img src={player.url} alt="player-headshot" />
+        <div className="image-circle">
+        <img className="proPic" src={player.url} alt="player-headshot" />
+        </div>
         <p> Player ID : {commonInfo.personId} </p>
         <p>
           Team : {commonInfo.teamCity} {commonInfo.teamName}

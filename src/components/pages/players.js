@@ -40,20 +40,27 @@ class Players extends React.Component {
 
   render() {
     return (
-      <div className="players-container">
+      <div className="players-main">
+      <div className="players-header">
         <h1>All Players</h1>
         <p>
           List of all players will be here, going to draw component "Players"
           from players.js file
         </p>
         <input
+          className="searchBar"
           onChange={this.handleInput}
           value={this.state.searchInput}
           name="searchInput"
           type="text"
+          placeholder="Enter player name"
         />
-        <List searchString={this.state.searchInput} />
       </div>
+        <div className="players-container">
+          <br />
+          <List searchString={this.state.searchInput} />
+        </div>
+        </div>
     );
   }
 }
@@ -80,11 +87,13 @@ class List extends React.Component {
     //Filtered list is mapped through then rendered for each including a link that routes to /players/:id
 
     return visiblePlayer.map(player => (
-      <div className="playerCard" key={player.playerId}>
-        <Link to={`/players/${player.playerId}`}>
-          {player.firstName} {player.lastName}
-        </Link>
-        <img src={player.url} alt="player-headshot" />
+      <div>
+        <div className="playerCard" key={player.playerId}>
+          <div className="image-circle">
+           <a href={`./players/${player.playerId}`}> <img className="proPic" src={player.url} alt="player-headshot" /> </a>
+          </div>
+        </div>
+        <a href={`./players/${player.playerId}`}>{player.fullName}</a>
       </div>
     ));
   }

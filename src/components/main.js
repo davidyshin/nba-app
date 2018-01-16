@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Players from './pages/players'
-import Teams from './pages/teams'
+import App from '../App.css'
 import Roster from './route/roster'
 
 
@@ -15,7 +15,6 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/teams' component={Teams}/>
       <Route path='/players' component={Roster}/>
     </Switch>
   </main>
